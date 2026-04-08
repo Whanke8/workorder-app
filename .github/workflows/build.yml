@@ -36,14 +36,13 @@ jobs:
     
     - name: Build APK
       run: |
-        cd workorder-app
         buildozer android debug
     
     - name: Upload APK
       uses: actions/upload-artifact@v4
       with:
         name: workorder-app
-        path: workorder-app/bin/*.apk
+        path: bin/*.apk
     
     - name: Create Release
       if: github.event_name == 'push' && github.ref == 'refs/heads/main'
@@ -51,6 +50,6 @@ jobs:
       with:
         tag_name: v1.0.0-${{ github.run_number }}
         name: Release v1.0.0
-        files: workorder-app/bin/*.apk
+        files: bin/*.apk
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
