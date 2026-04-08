@@ -20,7 +20,6 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y libtool libtool-bin autoconf automake pkg-config build-essential libffi-dev libssl-dev zlib1g-dev openjdk-17-jdk
-          sudo ldconfig
       
       - name: Install Python dependencies
         run: |
