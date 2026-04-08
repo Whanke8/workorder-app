@@ -8,6 +8,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
     steps:
       - uses: actions/checkout@v4
       
@@ -19,7 +21,7 @@ jobs:
       - name: Install system dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y libtool libtool-bin autoconf automake pkg-config build-essential libffi-dev libssl-dev zlib1g-dev openjdk-17-jdk
+          sudo apt-get install -y libtool libtool-bin autoconf automake pkg-config libltdl-dev build-essential libffi-dev libssl-dev zlib1g-dev openjdk-17-jdk
       
       - name: Install Python dependencies
         run: |
